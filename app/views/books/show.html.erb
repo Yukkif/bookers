@@ -1,0 +1,16 @@
+<h2>Book detail</h2>
+<table class='table'>
+  <tr>
+    <td>
+      <%= attachment_image_tag @book_record.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", size:'50x50'%>
+      <br>
+      <%= link_to @book_record.user.name, user_path(@book_record.user) %>
+    </td>
+    <td><%= link_to @book_record.title, book_path(@book_record) %></td>
+    <td><%= @book_record.body %></td>
+    <% if @book_record.user_id == current_user.id %>
+      <td><%= link_to "Edit", edit_book_path(@book_record),class: "btn btn-sm btn-success" %></td>
+      <td><%= link_to "Destroy", book_path(@book_record),method: :delete, data: {confirm: "削除してよろしいですか？"}, class: "btn btn-sm btn-danger" %></td>
+    <% end %>
+  </tr>
+</table>
