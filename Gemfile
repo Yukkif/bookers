@@ -27,6 +27,7 @@ gem 'bootstrap', '~> 4.5'
 gem 'jquery-rails'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
+gem 'dotenv-rails'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
@@ -54,6 +55,10 @@ group :test do
   gem 'rspec-rails'
   gem "factory_bot_rails"
   gem 'faker'
+end
+
+group :production do
+  gem 'mysql2'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
